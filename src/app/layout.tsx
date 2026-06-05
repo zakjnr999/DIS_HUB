@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Manrope, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { QRCodeWidget } from "@/components/layout/QRCodeWidget";
 import { businessConfig } from "@/config/business";
 import { images } from "@/config/images";
 import "./globals.css";
@@ -54,6 +55,7 @@ export default function RootLayout({
       <body className="font-body flex min-h-full flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
+        <QRCodeWidget />
         <Footer />
       </body>
     </html>
