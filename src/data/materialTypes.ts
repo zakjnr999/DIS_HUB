@@ -1,0 +1,15 @@
+export const materialTypes = [
+  "Cotton",
+  "Silk",
+  "Lace",
+  "Satin",
+  "Ankara",
+  "Chiffon",
+  "Denim",
+  "Kente",
+  "Linen",
+  "Wool",
+  "Polyester",
+  "Other",
+  "Not sure",
+];
