@@ -27,17 +27,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://adi3yeservices.com"),
-  title: "Adi3ye Services",
+  metadataBase: new URL("https://fashion-web-ebon.vercel.app"),
+  title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
   description: businessConfig.description,
+  alternates: {
+    canonical: "/",
+  },
   icons: {
-    icon: "/adeyie_icon.png",
-    apple: "/adeyie_icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Adi3ye Services",
+    title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
     description: businessConfig.description,
-    images: [images.hero.src],
+    url: "https://fashion-web-ebon.vercel.app",
+    siteName: "Adi3ye Services",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://fashion-web-ebon.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Adi3ye Services - Professional Clothing Care & Fashion Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
+    description: businessConfig.description,
+    images: ["https://fashion-web-ebon.vercel.app/og-image.jpg"],
   },
 };
 
