@@ -4,9 +4,9 @@ export const businessConfig = {
   tagline: "Discreet contraceptive and sexual wellness essentials",
   description:
     "Shop contraceptive and sexual wellness products with clear information, privacy-conscious order handling, and convenient delivery in Ghana.",
-  displayPhone: "+233 55 153 0411",
-  phoneHref: "tel:+233551530411",
-  whatsappNumber: "233551530411",
+  displayPhone: "+233 54 741 0274",
+  phoneHref: "tel:+233547410274",
+  whatsappNumber: "233547410274",
   email: "support@doitsafehub.com",
   address: "Accra, Ghana",
   whatsappDefaultMessage:

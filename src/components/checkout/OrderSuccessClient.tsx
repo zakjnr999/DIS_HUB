@@ -46,13 +46,10 @@ export function OrderSuccessClient({ reference }: { reference?: string }) {
             Order received.
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
-            Your demo order has been saved locally. Support can confirm product
+            Your order has been saved locally. Support will confirm product
             availability, pricing, delivery, and payment details.
           </p>
-          <div className="mt-5 rounded-2xl border border-teal-900/10 bg-mint-50 p-4 text-sm leading-6 text-slate-600">
-            Presentation tip: open the admin dashboard in this same browser to
-            show this order in the local order table.
-          </div>
+
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_360px]">
             <div className="rounded-xl border border-slate-200 p-5">
@@ -123,9 +120,6 @@ export function OrderSuccessClient({ reference }: { reference?: string }) {
             </Button>
             <Button href="/shop" variant="secondary">
               Continue Shopping
-            </Button>
-            <Button href="/admin" variant="secondary">
-              View in Admin Dashboard
             </Button>
           </div>
         </div>

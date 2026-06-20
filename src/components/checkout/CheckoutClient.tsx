@@ -88,7 +88,7 @@ export function CheckoutClient() {
       <div className="container-shell">
         <h1 className="text-5xl font-light text-slate-950">Private checkout</h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
-          This demo saves orders locally and does not process payment. Payment
+          This saves orders locally and does not process payment. Payment
           integration can be added later.
         </p>
 
@@ -132,16 +132,12 @@ export function CheckoutClient() {
               <div className="grid gap-4 md:grid-cols-2">
                 <FieldShell error={errors.deliveryMethod?.message} label="Delivery method">
                   <Select {...register("deliveryMethod")}>
-                    <option>Standard delivery</option>
                     <option>Express delivery</option>
-                    <option>Pickup</option>
                   </Select>
                 </FieldShell>
                 <FieldShell error={errors.paymentMethod?.message} label="Payment method">
                   <Select {...register("paymentMethod")}>
-                    <option>Cash on delivery</option>
                     <option>Mobile money</option>
-                    <option>Pay online later</option>
                   </Select>
                 </FieldShell>
               </div>
@@ -220,7 +216,7 @@ export function CheckoutClient() {
               <span>{formatCurrency(total)}</span>
             </div>
             <Button className="mt-6 w-full" disabled={isSubmitting} type="submit">
-              Place Demo Order
+              Place Order
             </Button>
             <p className="mt-4 text-xs leading-5 text-slate-500">
               Orders are packaged discreetly. No payment is processed by this demo.
