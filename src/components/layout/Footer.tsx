@@ -8,7 +8,14 @@ export function Footer() {
     <footer className="bg-black text-white" id="contact">
       <div className="container-shell grid gap-10 py-16 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
         <div>
-          <p className="text-xl font-black">{businessConfig.name}</p>
+          <div className="flex items-center gap-3 text-xl font-black text-white">
+            <img
+              alt="DIS HUB Logo"
+              className="h-12 w-12 rounded-xl object-contain bg-white/10 p-1"
+              src="/DIS_HUB_icon.png"
+            />
+            <span>{businessConfig.name}</span>
+          </div>
           <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400">
             Discreet contraceptive and sexual wellness essentials with clear
             product information and privacy-conscious order handling.

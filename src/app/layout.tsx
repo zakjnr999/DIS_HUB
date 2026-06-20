@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/DIS_HUB_icon.png",
   },
   openGraph: {
     title: "DO IT SAFE HUB | Discreet Contraceptive Ecommerce",

@@ -26,10 +26,17 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
       <div className="container-shell flex min-h-[72px] items-center gap-4">
-        <Link className="group shrink-0 flex items-center gap-1 text-xl font-black tracking-tighter" href="/">
-          <span className="text-slate-950">DIS</span>
-          <span className="bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent">HUB</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-500 transition-transform duration-300 group-hover:scale-150" />
+        <Link className="group shrink-0 flex items-center gap-2.5 text-xl font-black tracking-tighter" href="/">
+          <img
+            alt="DIS HUB Logo"
+            className="h-10 w-10 rounded-md object-contain transition-transform duration-300 group-hover:scale-110"
+            src="/DIS_HUB_icon.png"
+          />
+          <div className="flex items-center gap-1">
+            <span className="text-slate-950">DIS</span>
+            <span className="bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent">HUB</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-teal-500 transition-transform duration-300 group-hover:scale-150" />
+          </div>
         </Link>
 
         <Link
