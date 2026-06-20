@@ -1,75 +1,123 @@
 export const images = {
-  hero: {
-    src: "/images/hero-tailoring-studio.png",
-    alt: "Premium tailoring studio with sewing tools and dress mannequin.",
-  },
-  flyer: {
-    src: "/images/adi3ye-flyer-background.png",
-    alt: "Adi3ye Services fashion and tailoring promotional flyer.",
-  },
-  about: {
-    src: "/images/about-clothing-care.png",
-    alt: "Tailor carefully working on clothing with sewing tools.",
-  },
-  bookingSide: {
-    src: "/images/booking-form-side-image.png",
-    alt: "Dress, fabric rolls, measuring tape, and sewing tools in a tailoring studio.",
-  },
-  customerSupport: {
-    src: "/images/customer-service-support.png",
-    alt: "Friendly tailoring service assistant helping a customer.",
-  },
-  backgroundPattern: "/images/background-pattern.png",
-  adminEmpty: {
-    src: "/images/empty-bookings-illustration.png",
-    alt: "Empty bookings illustration with calendar and dress hanger.",
-  },
-  services: {
-    customDressSewing: {
-      src: "/images/service-custom-dress-sewing.png",
-      alt: "Tailor sewing a custom dress with a sewing machine.",
+  products: {
+    postinor2: {
+      src: "/images/single-postinor2.png",
+      alt: "Postinor-2 emergency contraceptive product pack.",
     },
-    dressAlteration: {
-      src: "/images/service-dress-alteration.png",
-      alt: "Dress alteration with measuring tape and pins on a mannequin.",
+    lydiaPostpill: {
+      src: "/images/lydia_postpill.png",
+      alt: "Lydia Postpill emergency contraception product pack.",
     },
-    repairsMending: {
-      src: "/images/service-repairs-mending.png",
-      alt: "Clothing repair with needle, thread, buttons, and fabric.",
+    contra72: {
+      src: "/images/contra.png",
+      alt: "Contra-72 levonorgestrel emergency contraceptive pill product pack.",
     },
-    beadingEmbroidery: {
-      src: "/images/service-beading-embroidery.png",
-      alt: "Detailed beadwork and embroidery on premium fabric.",
+    secure: {
+      src: "/images/secure.png",
+      alt: "Secure levonorgestrel emergency contraceptive pill product pack and blister.",
     },
-    ironingPressing: {
-      src: "/images/service-ironing-pressing.png",
-      alt: "Professional ironing and pressing of clean clothing.",
+    oviva: {
+      src: "/images/oviva.png",
+      alt: "Oviva oral contraceptive tablets product pack and blister.",
     },
-    bridalOccasion: {
-      src: "/images/service-bridal-occasion.png",
-      alt: "Elegant bridal or occasion dress displayed in a fashion studio.",
+    ebonyCondoms: {
+      src: "/images/ebony_condom.png",
+      alt: "Ebony premium lubricated condoms product pack and foil sachet.",
     },
-    uniformSewing: {
-      src: "/images/service-uniform-sewing.png",
-      alt: "Uniform sewing materials and neatly folded clothing on a tailoring table.",
+    fiestaCondoms: {
+      src: "/images/single-fiesta-condom.png",
+      alt: "Fiesta premium lubricated condom product pack and sachet.",
     },
-    fabricConsultation: {
-      src: "/images/service-fabric-consultation.png",
-      alt: "Fabric swatches and tailoring tools for fabric consultation.",
+    kissCondoms: {
+      src: "/images/kiss_condom.png",
+      alt: "Kiss premium lubricated condoms product pack and foil sachet.",
+    },
+    pregnancyTestKit: {
+      src: "/images/single-pregnancy-test-kit.png",
+      alt: "Single hCG pregnancy test kit product pack and test cassette.",
     },
   },
-  testimonials: [
-    {
-      src: "/images/testimonial-customer-1.png",
-      alt: "Happy Adi3ye Services customer.",
+} as const;
+
+export const productImages = {
+  heroComposition: {
+    src: "/images/hero-product-composition.png",
+    alt: "Contraceptive and sexual wellness products.",
+    width: 1402,
+    height: 1122,
+  },
+  categories: {
+    emergencyContraceptives: {
+      src: "/images/category-emergency-contraceptives.png",
+      alt: "Emergency contraceptive product range.",
+      width: 1254,
+      height: 1254,
     },
-    {
-      src: "/images/testimonial-customer-2.png",
-      alt: "Satisfied customer after clothing service.",
+    condoms: {
+      src: "/images/category-condom-range.png",
+      alt: "Condom product range.",
+      width: 1254,
+      height: 1254,
     },
-    {
-      src: "/images/testimonial-customer-3.png",
-      alt: "Customer pleased with tailoring service.",
+    pregnancyTests: {
+      src: "/images/category-pregnancy-tests.png",
+      alt: "Pregnancy test kit range.",
+      width: 1254,
+      height: 1254,
     },
-  ],
+  },
+  floating: {
+    pillBlister: {
+      src: "/images/floating-pill-blister.png",
+      alt: "Floating contraceptive pill blister.",
+      width: 1536,
+      height: 1024,
+    },
+    condomSachets: {
+      src: "/images/floating-condom-sachets.png",
+      alt: "Floating condom sachets.",
+      width: 1254,
+      height: 1254,
+    },
+  },
+  singles: {
+    postinor2: {
+      src: "/images/single-postinor2.png",
+      alt: "Postinor-2 emergency contraceptive product pack.",
+      width: 1254,
+      height: 1254,
+    },
+    fiesta: {
+      src: "/images/single-fiesta-condom.png",
+      alt: "Fiesta condom product pack and sachet.",
+      width: 1254,
+      height: 1254,
+    },
+    pregnancyTest: {
+      src: "/images/single-pregnancy-test-kit.png",
+      alt: "Single pregnancy test kit product.",
+      width: 1254,
+      height: 1254,
+    },
+  },
+  promotions: {
+    emergencyContraceptives: {
+      src: "/images/promo-emergency-trio.png",
+      alt: "Emergency contraceptive promotional product trio.",
+      width: 1536,
+      height: 1024,
+    },
+    condoms: {
+      src: "/images/promo-condom-trio.png",
+      alt: "Condom promotional product trio.",
+      width: 1254,
+      height: 1254,
+    },
+    pregnancyTests: {
+      src: "/images/promo-pregnancy-tests.png",
+      alt: "Pregnancy test promotional product range.",
+      width: 1254,
+      height: 1254,
+    },
+  },
 } as const;

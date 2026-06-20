@@ -1,177 +1,120 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Button } from "@/components/common/Button";
+import { CartIcon, SearchIcon, AdminIcon, MenuIcon } from "@/components/icons";
 import { businessConfig } from "@/config/business";
+import { useCart } from "@/hooks/useCart";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#services", label: "Services" },
-  { href: "/book", label: "Book" },
+  { href: "/shop", label: "Shop" },
+  { href: "/#categories", label: "Categories" },
+  { href: "/#how-it-works", label: "How It Works" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#contact", label: "Contact" },
+  { href: createWhatsAppLink(businessConfig.whatsappDefaultMessage), label: "Contact" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const isHome = pathname === "/";
+  const { count } = useCart();
 
   return (
-    <header
-      className={cn(
-        "top-0 z-50 w-full py-4",
-        isHome
-          ? "absolute bg-transparent"
-          : "sticky bg-[#FBF6ED]/72 backdrop-blur-xl",
-      )}
-    >
-      <nav
-        aria-label="Primary navigation"
-        className={cn(
-          "container-shell flex min-h-14 items-center justify-between gap-3 overflow-hidden rounded-full border px-3 py-2 transition-colors",
-          isHome
-            ? "border-white/20 bg-white/10 text-[#FFFDF8] shadow-[0_18px_48px_rgba(0,0,0,0.16)] backdrop-blur-md"
-            : "border-[#E8D8C3]/72 bg-[#FFFDF8]/74 text-[#1F1B18] shadow-[0_16px_42px_rgba(59,36,22,0.10)]",
-        )}
-      >
-        <Link className="flex min-w-0 items-center gap-2.5 font-black" href="/">
-          <Image
-            alt={`${businessConfig.name} Logo`}
-            className="h-10 w-10 shrink-0 rounded-full object-cover shadow-[0_10px_24px_rgba(59,36,22,0.18)]"
-            height={40}
-            src="/adeyie_icon.png"
-            width={40}
-          />
-          <span className="truncate font-heading text-lg sm:text-xl">
-            {businessConfig.name}
-          </span>
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+      <div className="container-shell flex min-h-[72px] items-center gap-4">
+        <Link className="group shrink-0 flex items-center gap-1 text-xl font-black tracking-tighter" href="/">
+          <span className="text-slate-950">DIS</span>
+          <span className="bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent">HUB</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-teal-500 transition-transform duration-300 group-hover:scale-150" />
         </Link>
 
-        <div
-          className={cn(
-            "hidden items-center gap-1 rounded-full p-1 lg:flex",
-            isHome ? "bg-black/16" : "bg-[#F7EFE3]/70",
-          )}
+        <Link
+          className="hidden min-h-10 w-[320px] items-center gap-2 rounded-lg bg-slate-100 px-4 text-sm font-semibold text-slate-400 md:flex"
+          href="/shop"
+        >
+          <SearchIcon className="h-4 w-4" />
+          Search products
+        </Link>
+
+        <nav
+          aria-label="Primary navigation"
+          className="ml-auto hidden items-center gap-7 lg:flex"
         >
           {links.map((link) => (
             <Link
               className={cn(
-                "rounded-full px-3.5 py-2 text-sm font-extrabold transition",
-                isHome
-                  ? "text-[#F7EFE3] hover:bg-white/16 hover:text-white"
-                  : "text-[#7A5636] hover:bg-[#FFFDF8] hover:text-[#1F1B18]",
-                pathname === link.href &&
-                  (isHome
-                    ? "bg-white/18 text-white shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
-                    : "bg-[#FFFDF8] text-[#1F1B18] shadow-[0_8px_18px_rgba(59,36,22,0.08)]"),
+                "text-xs font-extrabold transition hover:text-slate-950",
+                pathname === link.href ? "text-slate-950" : "text-slate-400",
               )}
               href={link.href}
-              key={link.href}
+              key={link.label}
             >
               {link.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
-          <a
-            className={cn(
-              "rounded-full px-4 py-2 text-sm font-extrabold transition",
-              isHome
-                ? "text-[#FFFDF8] hover:bg-white/16"
-                : "text-[#7A5636] hover:bg-[#F7EFE3] hover:text-[#1F1B18]",
-            )}
-            href={businessConfig.phoneHref}
+        <div className="ml-auto flex items-center gap-2 lg:ml-0">
+          <Link
+            aria-label="Open search"
+            className="grid h-10 w-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100 md:hidden"
+            href="/shop"
           >
-            Call
-          </a>
-          <Button
-            size="sm"
-            variant={isHome ? "light" : "primary"}
-            href={createWhatsAppLink(businessConfig.whatsappDefaultMessage)}
+            <SearchIcon className="h-5 w-5" />
+          </Link>
+          <Link
+            aria-label="Admin panel"
+            className="grid h-10 w-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100"
+            href="/admin"
           >
-            WhatsApp
-          </Button>
+            <AdminIcon className="h-5 w-5" />
+          </Link>
+          <Link
+            aria-label={`Open cart with ${count} items`}
+            className="relative grid h-10 w-10 place-items-center rounded-lg text-slate-700 hover:bg-slate-100"
+            href="/cart"
+          >
+            <CartIcon className="h-5 w-5" />
+            {count > 0 ? (
+              <span className="absolute right-1 top-1 grid h-4 min-w-4 place-items-center rounded-full bg-teal-700 px-1 text-[10px] font-black text-white">
+                {count}
+              </span>
+            ) : null}
+          </Link>
+          <button
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
+            className="grid h-10 w-10 place-items-center rounded-lg text-slate-800 hover:bg-slate-100 lg:hidden"
+            onClick={() => setIsOpen((value) => !value)}
+            type="button"
+          >
+            <MenuIcon className="h-5 w-5 text-slate-700" />
+          </button>
         </div>
-
-        <button
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation menu"
-          className={cn(
-            "grid h-11 w-11 shrink-0 place-items-center rounded-full border shadow-sm lg:hidden",
-            isHome
-              ? "border-white/24 bg-white/14"
-              : "border-[#E8D8C3] bg-[#FFFDF8]",
-          )}
-          onClick={() => setIsOpen((value) => !value)}
-          type="button"
-        >
-          <span className="grid gap-1.5">
-            <span
-              className={cn(
-                "block h-0.5 w-5 rounded-full",
-                isHome ? "bg-[#FFFDF8]" : "bg-[#3B2416]",
-              )}
-            />
-            <span
-              className={cn(
-                "block h-0.5 w-5 rounded-full",
-                isHome ? "bg-[#FFFDF8]" : "bg-[#3B2416]",
-              )}
-            />
-            <span
-              className={cn(
-                "block h-0.5 w-5 rounded-full",
-                isHome ? "bg-[#FFFDF8]" : "bg-[#3B2416]",
-              )}
-            />
-          </span>
-        </button>
-      </nav>
+      </div>
 
       <div
         className={cn(
-          "grid overflow-hidden transition-all duration-300 lg:hidden",
+          "grid overflow-hidden border-t border-slate-200 bg-white transition-all lg:hidden",
           isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
         <div className="min-h-0">
-          <div
-            className={cn(
-              "container-shell mt-2 grid gap-2 rounded-[2rem] border p-3 shadow-[0_16px_42px_rgba(59,36,22,0.10)] backdrop-blur-xl",
-              isHome
-                ? "border-white/20 bg-[#24140C]/72"
-                : "border-[#E8D8C3] bg-[#FFFDF8]/92",
-            )}
-          >
+          <div className="container-shell grid gap-1 py-3">
             {links.map((link) => (
               <Link
-                className={cn(
-                  "rounded-full px-4 py-3 text-sm font-bold",
-                  isHome
-                    ? "text-[#F7EFE3] hover:bg-white/12"
-                    : "text-[#3B2416] hover:bg-[#E8D8C3]/45",
-                )}
+                className="rounded-lg px-3 py-3 text-sm font-extrabold text-slate-700 hover:bg-slate-100"
                 href={link.href}
-                key={link.href}
+                key={link.label}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Button
-              className="mt-2 w-full"
-              href={createWhatsAppLink(businessConfig.whatsappDefaultMessage)}
-            >
-              Speak to Customer Service
-            </Button>
           </div>
         </div>
       </div>

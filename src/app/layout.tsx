@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Manrope, Playfair_Display } from "next/font/google";
+import { Geist_Mono, Inter, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { QRCodeWidget } from "@/components/layout/QRCodeWidget";
 import { businessConfig } from "@/config/business";
-import { images } from "@/config/images";
 import "./globals.css";
 
-const bodyFont = Manrope({
+const manrope = Manrope({
   display: "swap",
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const displayFont = Playfair_Display({
+const inter = Inter({
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -27,38 +25,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fashion-web-ebon.vercel.app"),
-  title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
+  metadataBase: new URL("https://doitsafehub.com"),
+  title: {
+    default: "DO IT SAFE HUB | Discreet Contraceptive Ecommerce",
+    template: "%s | DO IT SAFE HUB",
+  },
   description: businessConfig.description,
   alternates: {
     canonical: "/",
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
+    title: "DO IT SAFE HUB | Discreet Contraceptive Ecommerce",
     description: businessConfig.description,
-    url: "https://fashion-web-ebon.vercel.app",
-    siteName: "Adi3ye Services",
+    url: "https://doitsafehub.com",
+    siteName: "DO IT SAFE HUB",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://fashion-web-ebon.vercel.app/og-image.jpg",
+        url: "/images/hero-product-composition.png",
         width: 1200,
         height: 630,
-        alt: "Adi3ye Services - Professional Clothing Care & Fashion Services",
+        alt: "Contraceptive and wellness products from DO IT SAFE HUB.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adi3ye Services | Professional Clothing Care & Fashion Services",
+    title: "DO IT SAFE HUB | Discreet Contraceptive Ecommerce",
     description: businessConfig.description,
-    images: ["https://fashion-web-ebon.vercel.app/og-image.jpg"],
+    images: ["/images/hero-product-composition.png"],
   },
 };
 
@@ -69,14 +68,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      className={`${manrope.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       lang="en"
-      className={`${bodyFont.variable} ${displayFont.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="font-body flex min-h-full flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
-        <QRCodeWidget />
         <Footer />
       </body>
     </html>

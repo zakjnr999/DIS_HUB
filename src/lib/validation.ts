@@ -1,11 +1,10 @@
 import { z } from "zod";
-import { pickupRequiredOptions } from "@/data/pickupOptions";
 
 const phoneRegex = /^[+()0-9\s-]{7,20}$/;
 
-export const bookingSchema = z
+export const checkoutSchema = z
   .object({
-    customerName: z.string().trim().min(2, "Full name is required."),
+    fullName: z.string().trim().optional().or(z.literal("")),
     phone: z
       .string()
       .trim()
@@ -16,98 +15,47 @@ export const bookingSchema = z
       .trim()
       .optional()
       .or(z.literal(""))
-      .refine((value) => !value || z.email().safeParse(value).success, {
+      .refine((value) => !value || z.string().email().safeParse(value).success, {
         message: "Enter a valid email address.",
       }),
-    address: z.string().trim().min(3, "Location/address is required."),
-    landmark: z.string().trim().optional(),
-    serviceType: z.string().trim().min(1, "Choose a service."),
-    customService: z.string().trim().optional(),
-    materialType: z.string().trim().min(1, "Choose a material type."),
-    customMaterial: z.string().trim().optional(),
-    imageUrls: z.array(z.string()).max(3).optional(),
-    priceRange: z.string().trim().min(1, "Choose a price range."),
-    pickupOption: z.string().trim().min(1, "Choose a pickup or delivery option."),
-    pickupAddress: z.string().trim().optional(),
-    pickupLandmark: z.string().trim().optional(),
-    pickupDate: z.string().trim().optional(),
-    pickupTime: z.string().trim().optional(),
-    preferredDate: z.string().trim().min(1, "Choose a preferred service date."),
-    preferredTime: z.string().trim().min(1, "Choose a preferred service time."),
-    urgency: z.enum(["Normal", "Urgent", "Not sure"], {
-      message: "Choose an urgency level.",
-    }),
+    city: z.string().trim().min(2, "Region or city is required."),
+    address: z.string().trim().min(5, "Delivery address is required."),
+    landmark: z.string().trim().min(2, "Landmark is required."),
+    deliveryInstructions: z.string().trim().optional(),
+    deliveryMethod: z.enum(["Standard delivery", "Express delivery", "Pickup"]),
+    paymentMethod: z.enum(["Cash on delivery", "Mobile money", "Pay online later"]),
+    transactionId: z.string().trim().optional().or(z.literal("")),
     notes: z.string().trim().optional(),
     confirmed: z.boolean().refine(Boolean, {
-      message: "Please confirm that the booking details are correct.",
+      message: "Please confirm that your order details are correct.",
     }),
   })
-  .superRefine((data, context) => {
-    if (data.serviceType === "Other" && !data.customService) {
-      context.addIssue({
-        code: "custom",
-        path: ["customService"],
-        message: "Tell us the service you need.",
-      });
-    }
-
-    if (data.materialType === "Other" && !data.customMaterial) {
-      context.addIssue({
-        code: "custom",
-        path: ["customMaterial"],
-        message: "Tell us the material or fabric type.",
-      });
-    }
-
-    if (pickupRequiredOptions.includes(data.pickupOption)) {
-      if (!data.pickupAddress) {
-        context.addIssue({
-          code: "custom",
-          path: ["pickupAddress"],
-          message: "Pickup address is required.",
-        });
+  .refine(
+    (data) => {
+      if (data.paymentMethod === "Mobile money") {
+        return Boolean(data.transactionId && data.transactionId.trim().length > 0);
       }
-
-      if (!data.pickupDate) {
-        context.addIssue({
-          code: "custom",
-          path: ["pickupDate"],
-          message: "Pickup date is required.",
-        });
-      }
-
-      if (!data.pickupTime) {
-        context.addIssue({
-          code: "custom",
-          path: ["pickupTime"],
-          message: "Pickup time is required.",
-        });
-      }
+      return true;
+    },
+    {
+      message: "Transaction ID is required for Mobile Money payments.",
+      path: ["transactionId"],
     }
-  });
+  );
 
-export type BookingFormValues = z.infer<typeof bookingSchema>;
+export type CheckoutFormValues = z.infer<typeof checkoutSchema>;
 
-export const defaultBookingValues: BookingFormValues = {
-  customerName: "",
+export const defaultCheckoutValues: CheckoutFormValues = {
+  fullName: "",
   phone: "",
   email: "",
+  city: "",
   address: "",
   landmark: "",
-  serviceType: "",
-  customService: "",
-  materialType: "",
-  customMaterial: "",
-  imageUrls: [],
-  priceRange: "",
-  pickupOption: "",
-  pickupAddress: "",
-  pickupLandmark: "",
-  pickupDate: "",
-  pickupTime: "",
-  preferredDate: "",
-  preferredTime: "",
-  urgency: "Normal",
+  deliveryInstructions: "",
+  deliveryMethod: "Standard delivery",
+  paymentMethod: "Cash on delivery",
+  transactionId: "",
   notes: "",
   confirmed: false,
 };

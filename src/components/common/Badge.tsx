@@ -18,8 +18,8 @@ export function Badge({
     <span
       className={cn(
         "inline-flex items-center rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em]",
-        variant === "default" && "fabric-label text-[#7A5636]",
-        variant === "outline" && "border border-white/20 bg-[#FBF6ED]/14 text-[#F7EFE3]",
+        variant === "default" && "bg-mint-100 text-teal-800",
+        variant === "outline" && "border border-white/20 bg-white/10 text-white",
         className,
       )}
     >

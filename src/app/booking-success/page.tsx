@@ -1,10 +1,5 @@
-import { BookingSuccess } from "@/components/booking/BookingSuccess";
+import { redirect } from "next/navigation";
 
-export default async function BookingSuccessPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ reference?: string }>;
-}) {
-  const params = await searchParams;
-  return <BookingSuccess reference={params.reference} />;
+export default function LegacySuccessPage() {
+  redirect("/order-success");
 }

@@ -19,102 +19,39 @@ const stroke = {
   strokeWidth: 3,
 };
 
-export function DressSewingIcon(props: SVGProps<SVGSVGElement>) {
+export function PillIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M26 10h12l4 9-5 5 7 27H20l7-27-5-5 4-9Z" />
-      <path {...stroke} d="M27 24c4 3 8 3 12 0M47 14l7 7M51 11l-7 7M48 39c5 1 8 3 8 7 0 3-3 5-7 5" />
+      <rect {...stroke} height="34" rx="13" transform="rotate(35 32 32)" width="22" x="21" y="15" />
+      <path {...stroke} d="M22 39 42 25" />
     </IconBase>
   );
 }
 
-export function AlterationIcon(props: SVGProps<SVGSVGElement>) {
+export function CondomIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M28 12h8l5 10-5 4 6 26H22l6-26-5-4 5-10Z" />
-      <path {...stroke} d="M14 18c11 10 27 10 38 0" />
-      <path {...stroke} d="M18 22v5M25 26v4M32 27v5M39 26v4M46 22v5" />
+      <path {...stroke} d="M25 16h14M25 16c0 8-5 12-5 23 0 9 5 14 12 14s12-5 12-14c0-11-5-15-5-23" />
+      <path {...stroke} d="M25 22h14M26 44c4 3 8 3 12 0" />
     </IconBase>
   );
 }
 
-export function RepairIcon(props: SVGProps<SVGSVGElement>) {
+export function TestKitIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M16 20h32v28H16zM24 27h16v13H24z" />
-      <path {...stroke} d="M22 14l20 36M46 14 18 42M25 34h4M35 34h4" />
+      <rect {...stroke} height="42" rx="11" width="24" x="20" y="11" />
+      <rect {...stroke} height="15" rx="4" width="12" x="26" y="23" />
+      <path {...stroke} d="M28 29h8M28 33h8M32 44h.01" />
     </IconBase>
   );
 }
 
-export function EmbroideryIcon(props: SVGProps<SVGSVGElement>) {
+export function PackageIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M17 44c11-20 19-20 30 0M22 39c4 6 16 6 20 0" />
-      <circle cx="20" cy="22" r="3" fill="currentColor" />
-      <circle cx="32" cy="18" r="3" fill="currentColor" />
-      <circle cx="44" cy="22" r="3" fill="currentColor" />
-      <path {...stroke} d="M19 30c8 5 18 5 26 0M32 21v10" />
-    </IconBase>
-  );
-}
-
-export function IroningIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M13 43h38c-2-10-9-16-20-17H16l-3 17Z" />
-      <path {...stroke} d="M21 26v-6h14c6 0 10 3 13 8M16 48h34M23 35h7" />
-    </IconBase>
-  );
-}
-
-export function BridalWearIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M32 9c-7 7-9 18-14 43h28C41 27 39 16 32 9Z" />
-      <path {...stroke} d="M24 28c5 4 11 4 16 0M47 14l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4Z" />
-    </IconBase>
-  );
-}
-
-export function UniformIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M19 20l9-6 4 6 4-6 9 6v30H19V20Z" />
-      <path {...stroke} d="M28 14h8M32 21v29M16 14v38M12 18h8M12 28h6M12 38h8M12 48h6" />
-    </IconBase>
-  );
-}
-
-export function FabricConsultationIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M15 18h24v29H15zM25 13h24v29H25zM32 31l5 5 10-12" />
-    </IconBase>
-  );
-}
-
-export function CalendarIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M17 16h30v34H17zM24 10v10M40 10v10M17 26h30M25 34h4M35 34h4M25 42h4" />
-    </IconBase>
-  );
-}
-
-export function ConfirmationIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M18 33l9 9 19-22" />
-      <path {...stroke} d="M32 56c13 0 24-11 24-24S45 8 32 8 8 19 8 32s11 24 24 24Z" />
-    </IconBase>
-  );
-}
-
-export function PickupIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path {...stroke} d="M22 22h20l4 30H18l4-30ZM26 22c0-6 3-10 6-10s6 4 6 10M15 41h34" />
+      <path {...stroke} d="M14 22 32 12l18 10v20L32 52 14 42V22Z" />
+      <path {...stroke} d="m14 22 18 10 18-10M32 32v20M23 17l18 10" />
     </IconBase>
   );
 }
@@ -122,7 +59,29 @@ export function PickupIcon(props: SVGProps<SVGSVGElement>) {
 export function DeliveryIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M13 38h27V22H13zM40 29h8l5 9v8H40zM20 49a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM47 49a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+      <path {...stroke} d="M12 38h28V23H12zM40 30h8l5 8v8H40z" />
+      <circle {...stroke} cx="21" cy="47" r="5" />
+      <circle {...stroke} cx="47" cy="47" r="5" />
+      <path {...stroke} d="M18 29h13M16 34h9" />
+    </IconBase>
+  );
+}
+
+export function CartIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <path {...stroke} d="M15 16h5l5 27h22l5-18H24" />
+      <circle {...stroke} cx="29" cy="50" r="4" />
+      <circle {...stroke} cx="45" cy="50" r="4" />
+    </IconBase>
+  );
+}
+
+export function CheckoutIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <path {...stroke} d="M17 13h30v38H17zM24 23h16M24 32h16M24 41h8" />
+      <path {...stroke} d="m40 41 4 4 8-10" />
     </IconBase>
   );
 }
@@ -130,61 +89,72 @@ export function DeliveryIcon(props: SVGProps<SVGSVGElement>) {
 export function SupportIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M14 33c0-11 8-20 18-20s18 9 18 20M18 34h8v14h-8zM38 34h8v14h-8zM38 50c-2 3-5 4-9 4h-4M24 22c5-5 12-5 17 0" />
+      <path {...stroke} d="M14 34c0-12 8-21 18-21s18 9 18 21" />
+      <path {...stroke} d="M18 34h8v13h-8zM38 34h8v13h-8zM38 50c-2 3-5 4-10 4h-4" />
     </IconBase>
   );
 }
 
-export function BookingStatusIcon(props: SVGProps<SVGSVGElement>) {
+export function PrivacyIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M17 14h30v36H17zM25 24h14M25 33h14M25 42h7M43 39l4 4 7-9" />
+      <path {...stroke} d="M32 9 15 16v13c0 13 7 22 17 26 10-4 17-13 17-26V16L32 9Z" />
+      <path {...stroke} d="M24 32h16M28 32v-5a4 4 0 0 1 8 0v5M27 32v11h10V32" />
     </IconBase>
   );
 }
 
-export function ChatIcon(props: SVGProps<SVGSVGElement>) {
+export function InfoIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M12 30c0-10 9-18 20-18s20 8 20 18-9 18-20 18c-3 0-6 0-8-1l-10 5 3-10c-3-3-5-7-5-12Z" />
-      <path {...stroke} d="M24 29h16M24 36h10" />
+      <circle {...stroke} cx="32" cy="32" r="23" />
+      <path {...stroke} d="M32 29v14M32 21h.01" />
     </IconBase>
   );
 }
 
-export function ClockIcon(props: SVGProps<SVGSVGElement>) {
+export function ConfirmationIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M32 56c13 0 24-11 24-24S45 8 32 8 8 19 8 32s11 24 24 24Z" />
-      <path {...stroke} d="M32 18v15l10 6" />
+      <circle {...stroke} cx="32" cy="32" r="23" />
+      <path {...stroke} d="m21 33 8 8 15-18" />
     </IconBase>
   );
 }
 
-export function QuestionIcon(props: SVGProps<SVGSVGElement>) {
+export function SearchIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M24 24c1-6 5-9 11-8 5 1 8 5 7 10-1 4-4 6-8 9-2 1-2 3-2 6" />
-      <path {...stroke} d="M32 50h.01" />
+      <circle {...stroke} cx="29" cy="29" r="15" />
+      <path {...stroke} d="m40 40 11 11" />
     </IconBase>
   );
 }
 
-export function QuoteIcon(props: SVGProps<SVGSVGElement>) {
+export function HeartIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
-      <path {...stroke} d="M18 34h12v14H18V35c0-9 4-15 12-18M38 34h12v14H38V35c0-9 4-15 12-18" />
+      <path {...stroke} d="M32 51S13 40 13 25c0-7 5-12 12-12 4 0 7 2 7 5 0-3 3-5 7-5 7 0 12 5 12 12 0 15-19 26-19 26Z" />
     </IconBase>
   );
 }
 
-export const serviceIconMap = {
-  dress: DressSewingIcon,
-  alteration: AlterationIcon,
-  repair: RepairIcon,
-  embroidery: EmbroideryIcon,
-  ironing: IroningIcon,
-  bridal: BridalWearIcon,
-  uniform: UniformIcon,
-  fabric: FabricConsultationIcon,
-};
+export function AdminIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <circle {...stroke} cx="32" cy="22" r="8" />
+      <path {...stroke} d="M16 50c0-10 8-16 16-16s16 6 16 16" />
+      <rect {...stroke} height="12" rx="2" width="10" x="42" y="38" />
+      <path {...stroke} d="M47 38v-3a2 2 0 0 0-4 0v3" />
+    </IconBase>
+  );
+}
+
+export function MenuIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <IconBase {...props}>
+      <path {...stroke} d="M12 20h40M12 32h40M12 44h40" />
+    </IconBase>
+  );
+}
+

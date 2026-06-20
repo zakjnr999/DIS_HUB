@@ -7,7 +7,7 @@ import type {
 import { cn } from "@/lib/utils";
 
 const fieldClass =
-  "min-h-12 w-full rounded-2xl border border-[#E8D8C3] bg-[#FFFDF8]/92 px-4 py-3 text-sm text-[#1F1B18] shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] transition placeholder:text-[#A49689] focus:border-[#C8A96A] focus:outline-none focus:ring-4 focus:ring-[#C8A96A]/18";
+  "min-h-12 w-full rounded-2xl border border-[var(--soft-border)] bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition placeholder:text-slate-400 focus:border-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-700/10 disabled:cursor-not-allowed disabled:bg-slate-50";
 
 export function FieldShell({
   children,
@@ -23,14 +23,14 @@ export function FieldShell({
   required?: boolean;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-bold text-[#3B2416]">
+    <label className="grid gap-2 text-sm font-extrabold text-slate-800">
       <span>
-        {label} {required ? <span className="text-[#9A4A3C]">*</span> : null}
+        {label} {required ? <span className="text-red-700">*</span> : null}
       </span>
       {children}
-      {hint ? <span className="text-xs font-semibold text-[#7B6F65]">{hint}</span> : null}
+      {hint ? <span className="text-xs font-semibold text-slate-500">{hint}</span> : null}
       {error ? (
-        <span className="text-xs font-bold text-[#9A4A3C]">{error}</span>
+        <span className="text-xs font-bold text-red-700">{error}</span>
       ) : null}
     </label>
   );
@@ -47,7 +47,7 @@ export function Select(props: SelectHTMLAttributes<HTMLSelectElement>) {
 export function Textarea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <textarea
-      className={cn(fieldClass, "min-h-28 resize-y", props.className)}
+      className={cn(fieldClass, "min-h-28 resize-y leading-6", props.className)}
       {...props}
     />
   );

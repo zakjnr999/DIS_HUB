@@ -1,24 +1,24 @@
 "use client";
 
 import { Select } from "@/components/common/Field";
-import { bookingStatuses } from "@/data/bookingStatuses";
-import type { BookingStatus } from "@/types/booking";
+import { orderStatuses } from "@/hooks/useOrders";
+import type { OrderStatus } from "@/types/order";
 
 export function StatusSelect({
   onChange,
   value,
 }: {
-  onChange: (status: BookingStatus) => void;
-  value: BookingStatus;
+  onChange: (status: OrderStatus) => void;
+  value: OrderStatus;
 }) {
   return (
     <Select
-      aria-label="Update booking status"
-      className="min-w-48 rounded-full py-2"
-      onChange={(event) => onChange(event.target.value as BookingStatus)}
+      aria-label="Update order status"
+      className="min-w-48 rounded-md py-2"
+      onChange={(event) => onChange(event.target.value as OrderStatus)}
       value={value}
     >
-      {bookingStatuses.map((status) => (
+      {orderStatuses.map((status) => (
         <option key={status} value={status}>
           {status}
         </option>

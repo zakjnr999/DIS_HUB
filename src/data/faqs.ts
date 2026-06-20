@@ -1,32 +1,27 @@
 export const faqs = [
   {
-    question: "How do I book a service?",
+    question: "Will the package show product names?",
     answer:
-      "You can select a service, add your dress details, choose a date and time, and submit your booking online.",
+      "Orders are packed discreetly. Product names are not displayed on the outside of the package.",
   },
   {
-    question: "Can you pick up my dress?",
+    question: "Can support help me choose a product?",
     answer:
-      "Yes. You can choose pickup during booking. Pickup may attract an extra fee depending on your location.",
+      "Support can explain ordering, availability, and general product information. For personal medical guidance, speak with a qualified healthcare professional.",
   },
   {
-    question: "Can I upload a picture before bringing the dress?",
+    question: "Are product prices shown in Ghana cedis?",
     answer:
-      "Yes. Uploading a photo helps us understand the work before confirming the final price.",
+      "Yes. Product prices are displayed in Ghana cedis with the cedi symbol. Support can confirm availability before delivery.",
   },
   {
-    question: "Is the price fixed?",
+    question: "Can I pay online?",
     answer:
-      "The price range is only an estimate. Final price may depend on material, design, urgency, and complexity.",
+      "This demo does not process payment. Payment method selection is saved with the order so a gateway can be added later.",
   },
   {
-    question: "How long does a service take?",
+    question: "Do you provide medical diagnosis?",
     answer:
-      "Turnaround time depends on the service type. Simple repairs may take a day, while custom sewing or beading may take longer.",
-  },
-  {
-    question: "How do I contact customer service?",
-    answer:
-      "You can reach Adi3ye Services through WhatsApp, phone call, or email.",
+      "No. Information on this website is educational only and does not replace advice from a qualified healthcare professional.",
   },
 ];

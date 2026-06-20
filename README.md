@@ -1,48 +1,24 @@
-# Adi3ye Services
+# DO IT SAFE HUB
 
-A modern frontend-only service booking platform for a fashion, tailoring,
-clothing care, dress alteration, custom sewing, and clothing service business.
+A modern contraceptive and sexual wellness ecommerce demo for DIS HUB, built with Next.js,
+TypeScript, Tailwind CSS, React Hook Form, and Zod.
 
-The project is built for presentation use, but the code is organized like a real
-product surface so localStorage can be replaced with API calls later.
-
-## Tech Stack
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- React Hook Form
-- Zod validation
-- localStorage demo persistence
-- Custom reusable SVG icon components
+The site is product-led and privacy-conscious: customers can browse real product
+images, search and filter the catalogue, add items to a local cart, complete a
+demo checkout, and review local demo orders in an admin dashboard.
 
 ## Features
 
-- Flyer-style home hero for Adi3ye Services
-- About, services, how-it-works, testimonials, FAQ, contact, and footer sections
-- Dedicated booking page at `/book`
-- Guided multi-step booking form
-- Customer details, service selection, material type, image upload, price range,
-  pickup/delivery, service date/time, urgency, notes, and final review
-- Up to 3 image previews with JPG, JPEG, PNG, WEBP, and 5MB checks
-- Booking reference generation in `ADI-YYYY-XXXX` format
-- Booking success page with WhatsApp sharing
-- Demo admin dashboard at `/admin`
-- Booking status updates, stats, search, status filtering, and clear bookings
-- Responsive layout for mobile, tablet, laptop, and desktop screens
-
-## Folder Structure
-
-```txt
-src/
-  app/                 Next.js routes
-  components/          Reusable UI, layout, home, booking, admin, and icon components
-  config/              Business contact and brand config
-  data/                Services, FAQs, statuses, materials, pickup options, prices
-  hooks/               Client-side booking and storage hooks
-  lib/                 Storage, validation, WhatsApp, references, utilities
-  types/               Booking and service TypeScript types
-```
+- Editorial ecommerce homepage inspired by a compact consumer store reference
+- Real product image mapping from `public/images/`
+- Category browsing, product tabs, product detail pages, and related products
+- Search, category, stock, price, and sort filters on `/shop`
+- localStorage cart persistence with reusable cart operations
+- Checkout validation for contact, delivery, and payment method details
+- Local demo order creation with `CTR-YYYY-XXXX` references
+- Order confirmation with WhatsApp support sharing
+- Local admin dashboard for order status changes and demo revenue summary
+- Discreet packaging, support, and educational messaging throughout
 
 ## Run Locally
 
@@ -53,58 +29,25 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Build for Production
+## Build
 
 ```bash
+npm run lint
 npm run build
-npm run start
 ```
 
-## Replace the Flyer Image
+## Key Files
 
-The image paths are centralized in:
+```txt
+src/data/products.ts        Product catalogue
+src/config/images.ts        Centralized product image paths
+src/lib/cartStorage.ts      Cart repository helpers
+src/lib/orderStorage.ts     Order repository helpers
+src/lib/validation.ts       Checkout schema
+src/components/icons        Custom SVG icon system
+```
 
-`src/config/images.ts`
+## Notes
 
-Add replacement files to `public/images/`, then update the matching `src` value
-in that config file. Service cards, hero visuals, testimonial avatars, the
-booking side panel, contact image, and admin empty state all read from there.
-
-## Change Contact Details
-
-Edit:
-
-`src/config/business.ts`
-
-The WhatsApp number, phone link, email address, default WhatsApp message, and
-business display details are all stored there.
-
-## Demo Bookings
-
-Bookings are saved in browser localStorage through:
-
-`src/lib/bookingStorage.ts`
-
-This keeps the demo frontend-only. For a backend later, replace those helper
-functions with API calls while keeping the rest of the booking and admin UI.
-
-## Custom Icon System
-
-The custom SVG icon family is in:
-
-`src/components/icons/index.tsx`
-
-Icons share the same line style, stroke width, rounded joins, and brand colors
-through surrounding component classes. Service data maps to icons through
-`serviceIconMap`.
-
-## Future Improvements
-
-- Real backend/API
-- Admin authentication
-- SMS notifications
-- Email notifications
-- Online payment
-- Real image upload storage
-- Booking status notifications
-- Customer accounts
+Product prices are configured in Ghana cedis. The checkout is demo-only and does
+not process payment.
