@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EcommerceHome } from "@/components/home/EcommerceHome";
+import { HomeClientWrapper } from "@/components/home/HomeClientWrapper";
 
 export const metadata: Metadata = {
   title: "Storefront | DO IT SAFE HUB",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <EcommerceHome />;
+  return <HomeClientWrapper />;
 }

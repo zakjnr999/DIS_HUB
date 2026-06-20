@@ -166,3 +166,173 @@ textarea {
     padding-block: 48px;
   }
 }
+
+/* ==========================================
+   Splash Screen Animations & Transitions
+   ========================================== */
+
+/* Pre-hydration flash prevention: if splash was already seen, instantly show homepage and hide splash */
+html[data-splash-seen="true"] [role="status"] {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+html[data-splash-seen="true"] .homepage-content-wrapper {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+/* Pre-hydration flash prevention: if splash is active, override homepage styles to hide it completely */
+html[data-splash-active="true"] .homepage-content-wrapper {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(8px) !important;
+}
+
+/* Keyframes */
+@keyframes drawShield {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+}
+
+@keyframes splashProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-draw-shield {
+  animation: drawShield 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-draw-circle {
+  animation: drawCircle 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-fade-text {
+  animation: fadeTextIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.9s;
+}
+
+.animate-logo-glow {
+  animation: logoGlow 2.5s ease-in-out infinite;
+  animation-delay: 1.3s;
+}
+
+.animate-splash-progress {
+  animation: splashProgress 2.2s cubic-bezier(0.1, 0.8, 0.1, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.animate-splash-logo-container {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+.animate-splash-welcome {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.0s;
+}
+
+.animate-splash-desc {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.4s;
+}
+
+.animate-splash-labels {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.8s;
+}
+
+.animate-splash-progress-container {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.animate-splash-status {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 2.1s;
+}
+
+/* Reduced Motion Override Rules */
+@media (prefers-reduced-motion: reduce) {
+  .animate-draw-shield,
+  .animate-draw-circle,
+  .animate-fade-text,
+  .animate-logo-glow,
+  .animate-splash-progress,
+  .animate-splash-logo-container,
+  .animate-splash-welcome,
+  .animate-splash-desc,
+  .animate-splash-labels,
+  .animate-splash-progress-container,
+  .animate-splash-status {
+    animation: fadeIn 0.3s ease-out forwards !important;
+    animation-delay: 0s !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+

@@ -17,8 +17,9 @@ export function AdminAuth() {
     setError(null);
     try {
       login(email, password);
-    } catch (err: any) {
-      setError(err.message || "An error occurred.");
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "An error occurred.";
+      setError(errorMessage);
     }
   };
 

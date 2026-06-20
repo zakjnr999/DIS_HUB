@@ -12,6 +12,6 @@ export const businessConfig = {
   whatsappDefaultMessage:
     "Hello, I need help choosing or ordering a product from your website.",
   currency: "GHS",
-  deliveryFee: 25,
+  deliveryFee: 5,
   freeDeliveryThreshold: 0,
 } as const;

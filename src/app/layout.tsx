@@ -74,6 +74,19 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-body flex min-h-full flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (sessionStorage.getItem('dis-hub-splash-seen')) {
+                  document.documentElement.setAttribute('data-splash-seen', 'true');
+                } else {
+                  document.documentElement.setAttribute('data-splash-active', 'true');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
